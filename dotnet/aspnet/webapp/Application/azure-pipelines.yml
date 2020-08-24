@@ -32,3 +32,10 @@ steps:
   inputs:
     platform: '$(buildPlatform)'
     configuration: '$(buildConfiguration)'
+- task: AzureRmWebAppDeployment@4
+  inputs:
+    ConnectionType: 'AzureRM'
+    azureSubscription: 'Free Trial(1)(972d07d3-e6fd-4346-b202-e09715ebd8bf)'
+    appType: 'webApp'
+    WebAppName: 'testSAPAPP'
+    packageForLinux: '$(build.artifactStagingDirectory)/**/devops-project-samples.zip'
